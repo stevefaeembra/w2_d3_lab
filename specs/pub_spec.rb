@@ -9,8 +9,8 @@ class PubTest < MiniTest::Test
   def setup
     @customer = Customer.new("Steve",50,19)
     @underage_customer = Customer.new("Zak",40,15)
-    @drink1 = Drink.new("Bacardi & Coke", 3)
-    @drink2 = Drink.new("Small White Wine", 4)
+    @drink1 = Drink.new("Bacardi & Coke", 3, 20)
+    @drink2 = Drink.new("Small White Wine", 4, 25)
     drinks = [@drink1, @drink2]
     @pub1 = Pub.new("The Red Lion", 500, drinks)
   end
