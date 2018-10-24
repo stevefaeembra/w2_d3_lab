@@ -8,6 +8,7 @@ class PubTest < MiniTest::Test
 
   def setup
     @customer = Customer.new("Steve",50,19)
+    @underage_customer = Customer.new("Zak",40,15)
     @drink1 = Drink.new("Bacardi & Coke", 3)
     @drink2 = Drink.new("Small White Wine", 4)
     drinks = [@drink1, @drink2]
@@ -50,7 +51,7 @@ class PubTest < MiniTest::Test
 
   def test_serve_drink_changes_till_value
     expected = 504
-    @pub1.till_sale("Small White Wine")
+    @pub1.till_sale(@customer, "Small White Wine")
     actual = @pub1.get_till
     assert_equal(expected, actual)
   end
@@ -58,6 +59,12 @@ class PubTest < MiniTest::Test
   def test_customer_legal_age?
     expected = true
     actual = @pub1.legal_age?(@customer)
+    assert_equal(expected, actual)
+  end
+
+  def test_no_sale_to_minor
+    expected = false
+    actual = @pub1.till_sale(@underage_customer,"Bacardi & Coke")
     assert_equal(expected, actual)
   end
 

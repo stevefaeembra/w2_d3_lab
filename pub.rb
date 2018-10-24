@@ -20,9 +20,14 @@ class Pub
     end
   end
 
-  def till_sale(drink_name)
-    price = look_up_drink(drink_name)
-    @till += price
+  def till_sale(customer, drink_name)
+    if legal_age?(customer)
+      price = look_up_drink(drink_name)
+      @till += price
+      return true
+    else
+      return false
+    end
   end
 
   def legal_age?(customer)
