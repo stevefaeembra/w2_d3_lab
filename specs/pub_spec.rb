@@ -20,7 +20,7 @@ class PubTest < MiniTest::Test
     assert_equal("The Red Lion", @pub1.name)
   end
 
-  def test_till_opening_balance
+  def test_till_balance
     assert_equal(500, @pub1.get_till)
   end
 
@@ -39,5 +39,19 @@ class PubTest < MiniTest::Test
     actual = @pub1.drinks[1].name
     assert_equal(expected, actual)
   end
+
+  def test_look_up_drink
+    expected = 4
+    actual = @pub1.look_up_drink("Small White Wine")
+    assert_equal(expected,actual)
+  end
+
+  def test_serve_drink_changes_till_value
+    expected = 504
+    @pub1.till_sale("Small White Wine")
+    actual = @pub1.get_till
+    assert_equal(expected, actual)
+  end
+
 
 end
