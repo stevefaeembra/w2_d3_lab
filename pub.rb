@@ -21,8 +21,8 @@ class Pub
   end
 
   def till_sale(drink_name)
-      price = look_up_drink(drink_name)
-      @till += price
+    price = look_up_drink(drink_name)
+    @till += price
   end
 
 end

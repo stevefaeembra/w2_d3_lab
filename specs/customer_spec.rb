@@ -8,7 +8,7 @@ require_relative('../drink')
 class CustomerTest < MiniTest::Test
 
   def setup
-    @customer1 = Customer.new("Jenny", 10)
+    @customer1 = Customer.new("Jenny", 10, 29)
     @drink1 = Drink.new("Bacardi & Coke", 3)
     @drink2 = Drink.new("Small White Wine", 4)
     drinks = [@drink1, @drink2]
@@ -25,6 +25,10 @@ class CustomerTest < MiniTest::Test
 
   def test_customer_wallet_correct
     assert_equal(10, @customer1.get_wallet)
+  end
+
+  def test_customer_age
+    assert_equal(29, @customer1.age)
   end
 
   def test_customer_enquire_drink
@@ -53,6 +57,12 @@ class CustomerTest < MiniTest::Test
 
     expected = 6
     actual = @customer1.get_wallet
+    assert_equal(expected, actual)
+  end
+
+  def test_check_legal_age
+    expected = true
+    actual = @customer1.legal_age?
     assert_equal(expected, actual)
   end
 

@@ -2,10 +2,12 @@ require('minitest/autorun')
 require('minitest/rg')
 require_relative('../pub')
 require_relative('../drink')
+require_relative('../customer')
 
 class PubTest < MiniTest::Test
 
   def setup
+    @customer = Customer.new("Steve",50,19)
     @drink1 = Drink.new("Bacardi & Coke", 3)
     @drink2 = Drink.new("Small White Wine", 4)
     drinks = [@drink1, @drink2]
@@ -53,5 +55,10 @@ class PubTest < MiniTest::Test
     assert_equal(expected, actual)
   end
 
+  def test_customer_legal_age?
+    expected = true
+    actual = @customer.legal_age?
+    assert_equal(expected, actual)
+  end
 
 end

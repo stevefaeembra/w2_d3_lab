@@ -1,10 +1,11 @@
 class Customer
 
-  attr_reader :name
+  attr_reader :name, :age
 
-  def initialize(name, wallet)
+  def initialize(name, wallet, age)
     @name = name
     @wallet = wallet
+    @age = age
   end
 
   def get_wallet
@@ -29,6 +30,10 @@ class Customer
       pub.till_sale(drink_name)
       pay_out(price)
     end
+  end
+
+  def legal_age?
+    @age >= 18
   end
 
 end
