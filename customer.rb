@@ -32,8 +32,5 @@ class Customer
     end
   end
 
-  def legal_age?
-    @age >= 18
-  end
 
 end

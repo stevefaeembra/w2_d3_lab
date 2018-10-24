@@ -57,7 +57,7 @@ class PubTest < MiniTest::Test
 
   def test_customer_legal_age?
     expected = true
-    actual = @customer.legal_age?
+    actual = @pub1.legal_age?(@customer)
     assert_equal(expected, actual)
   end
 

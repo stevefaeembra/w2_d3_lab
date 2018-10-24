@@ -25,4 +25,8 @@ class Pub
     @till += price
   end
 
+  def legal_age?(customer)
+    customer.age >= 18
+  end
+
 end

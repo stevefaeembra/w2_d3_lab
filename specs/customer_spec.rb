@@ -60,10 +60,4 @@ class CustomerTest < MiniTest::Test
     assert_equal(expected, actual)
   end
 
-  def test_check_legal_age
-    expected = true
-    actual = @customer1.legal_age?
-    assert_equal(expected, actual)
-  end
-
 end
